@@ -1,0 +1,112 @@
+<?xml version="1.0" ?>
+<robot name="not_splited_pih2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find not_splited_pih2_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find not_splited_pih2_description)/urdf/not_splited_pih2.trans" />
+<xacro:include filename="$(find not_splited_pih2_description)/urdf/not_splited_pih2.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    <mass value="9.556332153138449"/>
+    <inertia ixx="0.002986" iyy="0.307614" izz="0.307614" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://not_splited_pih2_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://not_splited_pih2_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_wheel_1">
+  <inertial>
+    <origin xyz="0.05499999999999999 5.431956309404092e-16 -1.221245327087672e-17" rpy="0 0 0"/>
+    <mass value="4.420260171319266"/>
+    <inertia ixx="0.058314" iyy="0.033614" izz="0.033614" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.31 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://not_splited_pih2_description/meshes/l_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.31 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://not_splited_pih2_description/meshes/l_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_wheel_1">
+  <inertial>
+    <origin xyz="-0.05499999999999999 6.142499045164193e-16 1.221245327087672e-17" rpy="0 0 0"/>
+    <mass value="4.420260171319266"/>
+    <inertia ixx="0.058314" iyy="0.033614" izz="0.033614" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.31 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://not_splited_pih2_description/meshes/r_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.31 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://not_splited_pih2_description/meshes/r_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="body_link_1">
+  <inertial>
+    <origin xyz="-2.3560069593074888e-17 0.3714442886642588 0.0" rpy="0 0 0"/>
+    <mass value="193.94260970478055"/>
+    <inertia ixx="9.919255" iyy="2.675932" izz="12.385095" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://not_splited_pih2_description/meshes/body_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://not_splited_pih2_description/meshes/body_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rev8" type="continuous">
+  <origin xyz="-0.31 0.0 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="l_wheel_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Rev9" type="continuous">
+  <origin xyz="0.31 0.0 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="r_wheel_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Rev10" type="continuous">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="body_link_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+</robot>
