@@ -19,6 +19,16 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(xacro REQUIRED)
+find_package(rviz2 REQUIRED)
+find_package(robot_state_publisher REQUIRED)
+find_package(joint_state_publisher REQUIRED)
+find_package(joint_state_publisher_gui REQUIRED)
+
+install(DIRECTORY
+  launch
+  DESTINATION share/${PROJECT_NAME}/
+  )
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
