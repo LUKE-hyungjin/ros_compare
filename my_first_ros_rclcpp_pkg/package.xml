@@ -11,6 +11,11 @@
 
   <depend>rclcpp</depend>
   <depend>std_msgs</depend>
+  <depend>xacro</depend>
+  <depend>rviz2</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>joint_state_publisher</depend>
+  <depend>joint_state_publisher_gui</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
